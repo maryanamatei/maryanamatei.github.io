@@ -8,34 +8,32 @@ function hide(id){
 }   
 
 function show(id){
-    var el = document.getElementById(id);
-    el.style.display = "";
+    var el = document.getElementById(id).style.display = ' ';
+}
+
+function hideAllPages(){
+    hide("home");
+    hide("projects");
+    hide("languages");
+    hide('skills');
 }
 
 function showHomePage(){ 
-    hide("skills");
-    hide("projects");
-    hide("languages");
-    show("home");
+    hideAllPages ()
+        show("home");  
 }
 
 function showSkillsPage(){
-    hide("home");
-    hide("projects");
-    hide("languages");
-    show('skills');
+    hideAllPages ()
+        show('skills');     
 }
 
 function showProjectsPage(){
-    hide("home");
-    hide("skills");
-    hide("languages");
-    show("projects");
+    hideAllPages ()
+        show("projects");   
 }
 
 function showLanguagesPage(){
-    hide("home");
-    hide("projects");
-    hide("skills");
-    show("languages");
+    hideAllPages ()
+        show("languages");
 }
