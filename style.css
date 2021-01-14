@@ -3,25 +3,6 @@ html {
     height: 100%;
 }
 
-/* header, footer, #side-menu section{
-    margin: 2px;
-    padding: 4px;
-    border: 2px solid blue;
-}
-
-#content  {
-    margin: 2px;
-    padding: 4px;
-    border: 2px solid red;
-}
-
-#side-menu, #main {
-    margin: 2px;
-    padding: 4px;
-    border: 2px solid green;
-} */
-
-
 body {
     background-color: #f3f2ef;
     margin: 0px;
@@ -29,27 +10,39 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 header, body > section {
     flex: 1;
 }
+
 header > div {
     padding: 5px;
 }
+
 #content {
     flex: 4;
     display: flex;
     flex-direction: row;
 }
+
 #side-menu {
     flex: 1; 
     padding: 5px;
 }
+
 #main {
     flex: 4;
 }
+
 footer {
-    flex: 1;
-    max-height: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    color: #f5f5f5;
+}
+
+footer a {
+    color: #f5f5f5;
 }
 
 .page{
@@ -60,6 +53,7 @@ footer {
     padding: 24px;
     border-radius: 4px;
 }
+
 .page h2 {
     margin: 0;
 }
@@ -105,6 +99,4 @@ li {
     background-color: beige;
     color: blueviolet;
 }
-
-
 
