@@ -12,28 +12,28 @@ function show(id){
     el.style.display = "";
 }
 
-function showHome(){
+function showHomePage(){ 
     hide("skills");
     hide("projects");
     hide("languages");
     show("home");
 }
 
-function showSkills(){
+function showSkillsPage(){
     hide("home");
     hide("projects");
     hide("languages");
     show('skills');
 }
 
-function showProjects(){
+function showProjectsPage(){
     hide("home");
     hide("skills");
     hide("languages");
     show("projects");
 }
 
-function showLanguages(){
+function showLanguagesPage(){
     hide("home");
     hide("projects");
     hide("skills");
