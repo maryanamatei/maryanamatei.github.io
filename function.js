@@ -24,22 +24,7 @@ function hideAllPages(){
 
 }
 
-function showHomePage(){ 
-    hideAllPages ();
-    show("home");  
-}
-
-function showSkillsPage(){
+function showPage(id){ 
     hideAllPages();
-    show('skills');     
-}
-
-function showProjectsPage(){
-    hideAllPages();
-    show("projects");   
-}
-
-function showLanguagesPage(){
-    hideAllPages();
-    show("languages");
+    show(id);  
 }
