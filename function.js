@@ -48,13 +48,31 @@ initMenu();
 
 showPage("skills");
 
-var skills = ["HTML", "CSS", "JS"];
+var skills = [
+    "HTML", 
+    "CSS", 
+    "JS",
+    "NodeJS"
+];
+//dupa ce ducem skills in js -->vom itera elementele din acest array oricte ar fi ele in mod dinamic
+//var skillsLi_tmp = [
+ //   "<li>" + skills[0]+ "</li>",
+  //  "<li>" + skills[0]+ "</li>",
+  //  "<li>" + skills[0]+ "</li>"
+//]
 
-// TODO add 'favorite'skill
+var skillsLi = skills.map(function(skill){
+    console.info(skill);
+    return "<li>" + skill + "</li>";
+});
+
+// TODO add 'favorite'skill     ora 2:30-33
 var ul = document.querySelector("#skills ul");
-ul.innerHTML = "<li>" + skills[0]+ "</li>" + 
-               "<li>" + skills[1] + "</li>" + 
-               "<li>" + skills[2] + "</li>";
+ul.innerHTML = skillsLi.join(" ");
+
+//ul.innerHTML = skillsLi[0]+ 
+               skillsLi[1]+ 
+               skillsLi[2];
 //document.querySelector("#skills ul").innerHTML = skills[2];
 
 //citesc cu innerHtml prima bucata imi selecteaza ul-ul, 
