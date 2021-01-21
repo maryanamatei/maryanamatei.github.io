@@ -15,16 +15,10 @@ function show(id){
 
 function hideAllPages(){
     var pages = document.querySelectorAll(".page");
-    //console.debug(pagesIds);
-    
-    // initial    ;    condition     ; post execution
     for (var i = 0; i < pages.length;   i++) {
-       // console.info('i =', i, );
         var page = pages[i]
-        //console.warn(page.id); -->fiecare id al paginilor gasite de el
         hide(page.id);
-        //hide(pages[i].id); --> aceste linii fac acelasi lucru
-        //hide(pagesIds[i]);
+       
     }
 
 }
@@ -35,9 +29,8 @@ function hidePreviousPage(){
 
 function showPage(id){ 
     hideAllPages();
-   // hidePreviousPage();
     show(id);  
-    //activePage = id;
+    
 }
 
 function initMenu(){
