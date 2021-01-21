@@ -1,3 +1,5 @@
+var activePage = "home";
+
 function hide(id){
     var el =  document.getElementById(id);
     if (el) {
@@ -15,7 +17,7 @@ function hideAllPages(){
     var pagesIds = [
         "home", "skills", "projects", "languages"
     ];
-
+    
     // initial    ;    condition     ; post execution
     for (var i = 0; i < pagesIds.length;   i++) {
         hide(pagesIds[i]);
@@ -24,9 +26,16 @@ function hideAllPages(){
 
 }
 
+
+function hidePreviousPage(){
+    hide(activePage);
+}
+
 function showPage(id){ 
-    hideAllPages();
+    //hideAllPages();
+    hidePreviousPage();
     show(id);  
+    activePage = id;
 }
 
 function initMenu(){
@@ -37,6 +46,7 @@ function initMenu(){
            var id = link.innerHTML.toLowerCase();
            console.info("click", id);
            showPage(id);
+           //link.classList.add("active");
 
        }
         
@@ -46,7 +56,7 @@ function initMenu(){
 
 initMenu();
 
-showPage("skills");
+showPage(activePage); // (activePage)
 
 var skills = [
     "HTML", 
