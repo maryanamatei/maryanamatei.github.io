@@ -19,7 +19,7 @@ function hideAllPages(){
     // initial    ;    condition     ; post execution
     for (var i = 0; i < pagesIds.length;   i++) {
         hide(pagesIds[i]);
-        console.info('i =')
+        //console.info('i =', i, pagesIds[i])
     }
 
 }
@@ -28,3 +28,21 @@ function showPage(id){
     hideAllPages();
     show(id);  
 }
+
+function initMenu(){
+    console.warn('prepare click on links');
+    document.addEventListener("click",  function(e){
+        var link =e.target
+       if (e.target.matches("#top-menu-bar a")){
+           var id = link.innerHTML.toLowerCase();
+           console.info("click", id);
+           showPage(id);
+
+       }
+        
+    })
+    
+}
+
+initMenu();
+
