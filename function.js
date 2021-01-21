@@ -10,7 +10,6 @@ function hide(id){
 }   
 
 function show(id){
-    //console.info("show id=", id);
     document.getElementById(id).style.display = '';
 }
 
@@ -19,9 +18,13 @@ function hideAllPages(){
     var pageIds = pages.map(function(page){
         return page.id;
     });
+    //TODO Next Lesson use only pages.forEach
+    pageIds.forEach(function(pageId){
+        hide(pageId);
+    });
     
     for (var i = 0; i < pages.length; i++) {
-        var page = pages[i]
+       var page = pages[i] 
         hide(page.id);
     }
 }
@@ -39,30 +42,15 @@ function listenMenuClicks(){
     console.warn("not implemented --> ne plangem :)");
     document.addEventListener("click", function (e){
         var link = e.target;
-        //console.warn('link?', link.matches("#top-menu-bar a")); // zice daca am dat click pe linkuri
         if (link.matches("#top-menu-bar a")) {
             var id = link.innerHTML.toLowerCase();
-           // console.warn('click', id);
             showPage(id);
         }
         
     });
 }
 
-listenMenuClicks(); //--> initializarea meniului
-
-//function initMenu(){
-  //  console.warn('prepare click on links');
-   // document.addEventListener("click",  function(e){
-       // var link =e.target
-       //if (link.matches("#top-menu-bar a")){
-          // var id = link.getAttribute("data-page");
-          // console.info("click", id);
-           //showPage(id);}
-    //})
-//}
-
-//initMenu();
+listenMenuClicks(); 
 
 showPage(activePage); 
 
