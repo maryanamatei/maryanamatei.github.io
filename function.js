@@ -1,4 +1,4 @@
-var activePage = "home";
+var activePage = "skills";
 
 function hide(id){
     var el =  document.getElementById(id);
@@ -14,36 +14,38 @@ function show(id){
 }
 
 function hideAllPages(){
-    var pagesIds = [
-        "home", "skills", "projects", "languages"
-    ];
+    var pages = document.querySelectorAll(".page");
+    //console.debug(pagesIds);
     
     // initial    ;    condition     ; post execution
-    for (var i = 0; i < pagesIds.length;   i++) {
-        hide(pagesIds[i]);
-        //console.info('i =', i, pagesIds[i])
+    for (var i = 0; i < pages.length;   i++) {
+       // console.info('i =', i, );
+        var page = pages[i]
+        //console.warn(page.id); -->fiecare id al paginilor gasite de el
+        hide(page.id);
+        //hide(pages[i].id); --> aceste linii fac acelasi lucru
+        //hide(pagesIds[i]);
     }
 
 }
-
 
 function hidePreviousPage(){
     hide(activePage);
 }
 
 function showPage(id){ 
-    //hideAllPages();
-    hidePreviousPage();
+    hideAllPages();
+   // hidePreviousPage();
     show(id);  
-    activePage = id;
+    //activePage = id;
 }
 
 function initMenu(){
     console.warn('prepare click on links');
     document.addEventListener("click",  function(e){
         var link =e.target
-       if (e.target.matches("#top-menu-bar a")){
-           var id = link.innerHTML.toLowerCase();
+       if (link.matches("#top-menu-bar a")){
+           var id = link.getAttribute("data-page");
            console.info("click", id);
            showPage(id);
            //link.classList.add("active");
@@ -56,7 +58,7 @@ function initMenu(){
 
 initMenu();
 
-showPage(activePage); // (activePage)
+showPage(activePage); 
 
 var skills = [
     "HTML", 
