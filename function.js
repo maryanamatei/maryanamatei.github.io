@@ -59,3 +59,34 @@ function listenMenuClicks(){ // MenuInit grupa 5
 listenMenuClicks(); 
 
 showPage(activePage); 
+
+var allSkills = [ // array care contine multe obiecte, si va fi mutat in alt fisier json
+    // "HTML (15)", //divizare mai complexa cae sa offere m multe informatii
+    {  name: "HTML", endorcements: 15} ,
+    {  name: "CSS", endorcements :5} ,// "CSS (23)", 
+    {  name: "JS", endorcements: 21} // "JS (13)",
+ ]; // am transformat skills array intr-un json objects, adica am facut obicete in interior
+ 
+ 
+ // !!! in json standard se folosesc ghilimele duble pt stringuri
+ // in json din java script avem voie ca numle proprieteatilor sa fie fara ghilimele
+ //variabila(skills), variabila in variabila(name, endorcements), variabila din variabila in variabila (endorcements - acesta e adancimea 3)
+ 
+function showSkills(skills){
+    var skillsLi = skills.map(function(skill){
+        var endorcements = ` <span> &middot; ${skill.endorcements}</span>`;
+        //console.info(skill);
+        return "<li>" + skill.name + endorcements + "</li>";
+    });
+     
+    // cer de la document lista(ul) si il pastrez in variabila ul
+    var ul = document.querySelector(`#skills ul`);
+    // schimbam html-ul elementului ul cu valoare de dupa egal
+    ul.innerHTML = skillsLi.join("");
+    //document.querySelector("#skills ul").innerHTML = skills[2];
+}
+ 
+ 
+showSkills(allSkills);
+ 
+ 
