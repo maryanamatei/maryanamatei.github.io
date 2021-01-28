@@ -14,13 +14,10 @@ function show(id){
 }
 
 function hideAllPages(){
+    //hei, documentule, da-mi toate elementele care au clasa page
     var pages = Array.from(document.querySelectorAll(".page"));
-    var pageIds = pages.map(function(page){
-        return page.id;
-    });
-    // TODO Next Lesson use only pages.forEach
-    pageIds.forEach(function(pageId){
-        hide(pageId);
+    pages.forEach(function(page){
+        hide(page.id);
     });
 }
 
