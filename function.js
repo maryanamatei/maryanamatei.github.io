@@ -15,31 +15,37 @@ function show(id){
 
 function hideAllPages(){
     var pages = Array.from(document.querySelectorAll(".page"));
-    var pageIds = pages.map(function(page){
-        return page.id;
-    });
-    //TODO Next Lesson use only pages.forEach
-    pageIds.forEach(function(pageId){
-        hide(pageId);
-    });
-    
-    for (var i = 0; i < pages.length; i++) {
-       var page = pages[i] 
-        hide(page.id);
-    }
+   var pageIds = pages.map(function(page){
+       return page.id;
+   });
+   // TODO Next Lesson use only pages.forEach
+   pageIds.forEach(function(pageId){
+       hide(pageId);
+   });
 }
 
 function hidePreviousPage(){
     hide(activePage);
+    var link = document.querySelector(`#top-menu-bar a[data-page="${activePage}"]`);
+    link.classList.remove("active");
 }
 
-function showPage(id){ 
-    hideAllPages();
-    show(id); 
+function showPage(id) {
+    // hideAllPages();
+    hidePreviousPage();
+
+    show(id);
+
+    var link = document.querySelector(`#top-menu-bar a[data-page="${id}"]`);
+    // console.info("activePage", activePage, "id", id);
+    link.classList.add("active");
+    activePage = id;
+    //console.info("activePage", activePage, "id", id);
+   
+    // commit as show active menu
 }
 
-function listenMenuClicks(){
-    console.warn("not implemented --> ne plangem :)");
+function listenMenuClicks(){ // MenuInit grupa 5
     document.addEventListener("click", function (e){
         var link = e.target;
         if (link.matches("#top-menu-bar a")) {
@@ -53,27 +59,3 @@ function listenMenuClicks(){
 listenMenuClicks(); 
 
 showPage(activePage); 
-
-var skills = [
-    "HTML", 
-    "CSS", 
-    "JS",
-    "NodeJS"
-];
-
-var skillsLi = skills.map(function(skill){
-    console.info(skill);
-    return "<li>" + skill + "</li>";
-});
-
-// TODO add 'favorite'skill     ora 2:30-33
-var ul = document.querySelector("#skills ul");
-ul.innerHTML = skillsLi.join(" ");
-
-ul.innerHTML = skillsLi[0]+ 
-               skillsLi[1]+ 
-               skillsLi[2];
-//document.querySelector("#skills ul").innerHTML = skills[2];
-
-//citesc cu innerHtml prima bucata imi selecteaza ul-ul, 
-//apoi
