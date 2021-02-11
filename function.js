@@ -58,30 +58,22 @@ showPage(activePage);
 // array care contine multe obiecte, 
  // adica am facut obicete in interior
 var allSkills = [ 
-    {  name: "HTML", endorcements: 15} ,
-    {  name: "CSS", endorcements :5} ,
-    {  name: "JS", endorcements: 21} 
+    {  name: "HTML", favorite: true, endorcements: 15} ,
+    {  name: "CSS", favorite: false, endorcements :5} ,
+    {  name: "JS", favorite: true, endorcements: 21} 
 ]; 
-
-
- // !!! in json standard se folosesc ghilimele duble pt stringuri
- // in json din java script avem voie ca numle proprieteatilor sa fie fara ghilimele
- //variabila(skills), variabila in variabila(name, endorcements), variabila din variabila in variabila (endorcements - acesta e adancimea 3)
- 
+// TODO class = "favorite skill"
 function showSkills(skills){
-    var skillsLi = skills.map(function(skill){
-        var endorcements = ` <span> &middot; ${skill.endorcements}</span>`;
-        //console.info(skill);
-        return "<li>" + skill.name + endorcements + "</li>";
+    var allSkillsHtml = skills.map(function(skill){
+        console.info(skill);
+        return `<li>${skill.name} <span> &middot(${skill.endorcements})</span></li>`;
     });
-     
-    // cer de la document lista(ul) si il pastrez in variabila ul
-    var ul = document.querySelector(`#skills ul`);
-    // schimbam html-ul elementului ul cu valoare de dupa egal
-    ul.innerHTML = skillsLi.join("");
-}
- 
- 
+    
+    var skillsEl = document.querySelector("#skills ul");
+    skillsEl.innerHTML = allSkillsHtml.join("");
+
+};
+
 showSkills(allSkills);
  
  
