@@ -23,7 +23,7 @@ function hideAllPages(){
 
 function hidePreviousPage(){
     hide(activePage);
-    var link = document.querySelector(`#top-menu-bar a[data-page="${activePage}"]`);
+    var link = document.querySelector(`#top-menu-bar a[data-id="${activePage}"]`);
     link.classList.remove("active");
 }
 
@@ -33,7 +33,7 @@ function showPage(id) {
 
     show(id);
 
-    var link = document.querySelector(`#top-menu-bar a[data-page="${id}"]`);
+    var link = document.querySelector(`#top-menu-bar a[data-id="${id}"]`);
     // console.info("activePage", activePage, "id", id);
     link.classList.add("active");
     activePage = id;
@@ -44,7 +44,7 @@ function listenMenuClicks(){ // MenuInit grupa 5
     document.addEventListener("click", function (e){
         var link = e.target;
         if (link.matches("#top-menu-bar a")) {
-            var id = link.innerHTML.toLowerCase();
+            var id = link.getAttribute("data-id");
             showPage(id);
         }
         
@@ -55,24 +55,31 @@ listenMenuClicks();
 
 showPage(activePage); 
 
-// array care contine multe obiecte, 
- // adica am facut obicete in interior
-var allSkills = [ 
-    {  name: "HTML", favorite: true, endorcements: 15} ,
-    {  name: "CSS", favorite: false, endorcements :5} ,
-    {  name: "JS", favorite: true, endorcements: 21} 
-]; 
-// TODO class = "favorite skill"
+var allSkills = []; 
+
 function showSkills(skills){
     var allSkillsHtml = skills.map(function(skill){
-        console.info(skill);
-        return `<li>${skill.name} <span> &middot(${skill.endorcements})</span></li>`;
+        var cls = skill.favorite ? "favorite" : "";
+        return `<li class="${cls}">
+        ${skill.name} <span> &middot(${skill.endorcements})</span>
+        </li>`;
     });
     
     var skillsEl = document.querySelector("#skills ul");
     skillsEl.innerHTML = allSkillsHtml.join("");
 
 };
+
+fetch("data/skills.json")
+    .then(function(r) {
+        return r.json();
+    })
+    .then(function (skills){
+        skills.sort(function(s1,s2){
+            return s2.endorcements - s1.endorcements;
+        })
+        showSkills(skills);
+    });
 
 showSkills(allSkills);
  

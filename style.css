@@ -134,8 +134,7 @@ li {
 
 .favorite {
     
-    font-style: italic;
-    background-color: beige;
-    color: blueviolet;
+    font-style: bold;
+    color: royalblue;
 }
 

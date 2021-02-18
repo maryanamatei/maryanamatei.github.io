@@ -1,5 +1,19 @@
 [ 
-    { "name": "HTML", "endorcements": 15 } , 
-    { "name": "CSS", "endorcements":5 } , 
-    { "name": "JS", "endorcements": 21 } 
+    { 
+        "name": "HTML",
+        "favorite":true,  
+        "endorcements": 15 
+    },
+
+    { 
+        "name": "CSS",
+        "favorite":false,
+        "endorcements":10
+    },
+
+    { 
+        "name": "JS",
+        "favorite":true,
+        "endorcements": 21 
+    } 
  ]
