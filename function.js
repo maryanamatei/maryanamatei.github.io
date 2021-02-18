@@ -71,9 +71,7 @@ function showSkills(skills){
 };
 
 fetch("data/skills.json")
-    .then((r) => {
-        return r.json();
-    })
+    .then(r => r.json())
     .then((skills) => {
         skills.sort((s1,s2) => {
             return s2.endorcements - s1.endorcements;
